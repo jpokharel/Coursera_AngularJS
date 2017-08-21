@@ -14,29 +14,28 @@
 
       //Store the registered user details
       service.storeUserDetails=function(user){
-        Console.write("User first name is: ");
-        firstname=user.firstname;
-        lastname=user.lastname;
-        phone=user.phone;
-        email=user.email;
-        shortname=user.shortname;
+        service.firstname=user.firstname;
+        service.lastname=user.lastname;
+        service.phone=user.phone;
+        service.email=user.email;
+        service.shortname=user.shortname;
       }
 
       //Return registered user details
       service.getFirstName=function(){
-        return firstname;
+        return service.firstname;
       };
       service.getLastName=function(){
-        return lastname;
+        return service.lastname;
       };
       service.getPhoneNumber=function(){
-        return phone = phone;
+        return service.phone;
       };
       service.getEmailAddress=function(){
-        return email;
+        return service.email;
       };
       service.getShortName=function(){
-        return shortname;
+        return service.shortname;
       };
   }
 

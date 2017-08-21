@@ -4,14 +4,13 @@
   angular.module('public')
   .controller('SignUpFormController', SignUpFormController);
 
-  SignUpFormController.$inject=['UserInfoService'];
-  function SignUpFormController(UserInfoService) {
+  SignUpFormController.$inject=['$scope','UserInfoService'];
+  function SignUpFormController($scope,UserInfoService) {
     var reg = this;
+    $scope.user={};
 
-    reg.submit = function (user) {
-      //Service call to store the user details
-      console.log("Clicked inside this");
-      UserInfoService.storeUserDetails(user);
+    reg.submit = function () {
+      UserInfoService.storeUserDetails($scope.user);
       reg.completed = true;
     };
 

@@ -8,8 +8,7 @@
     ng-maxlength="32"
     placeholder="FirstName"
     minlength="1"
-    ng-model="reg.user.firstname">
-    {{reg.user.firstname}}
+    ng-model="user.firstname">
     <span
     ng-if="(signupForm.firstname.$error.minlength ||
     signupForm.firstname.$error.required) && signupForm.firstname.$touched">
@@ -24,8 +23,7 @@
     ng-maxlength="10"
     minlength="1"
     placeholder="LastName"
-    ng-model="reg.user.lastname">
-    {{reg.user.lastname}}
+    ng-model="user.lastname">
     <span
     ng-if="(signupForm.lastname.$error.minlength ||
     signupForm.lastname.$error.required) && signupForm.lastname.$touched">
@@ -38,7 +36,7 @@
     <input name="email" type="email" style="color:black;"
     required
     maxlength="32"
-    ng-model="reg.user.email">
+    ng-model="user.email">
     <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
     Must be a valid email address: handle@domain format</span><br>
 
@@ -46,7 +44,7 @@
     <input name="phone" type="text" style="color:black;"
     placeholder="Phone: ###-###-####"
     required
-    ng-model="reg.user.phone"
+    ng-model="user.phone"
     pattern="(\d{3})-(\d{3})-(\d{4})">
     <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
     Phone must be in the format ###-###-####.</span><br>
@@ -54,11 +52,12 @@
     Please let us know your favorite dish:
     <input name="shortname" style="color:black"
     required
-    ng-model="reg.user.shortname">
+    ng-model="user.shortname">
     <span
     ng-if="signupForm.shortname.$error.required && signupForm.shortname.$touched">
     Dish Name cannot be empty!</span><br><br><br>
 
-    <input type="submit" value="Submit" ng-click="reg.submit(reg.user)">&#09;<input type="reset">
+    <input type="submit" value="Submit" ng-click="reg.submit()">&#09;<input type="reset">
   </div>
+
 </form>
