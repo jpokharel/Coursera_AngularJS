@@ -1,0 +1,64 @@
+<form name="signupForm" ng-controller="SignUpFormController as reg" novalidate>
+  <div id="customerDetails" align="left" style="margin-left:10em;">
+    <h1>Register Here!</h1>
+
+     First Name:&#09;
+    <input name="firstname" type="text" style="color:black;"
+    required
+    ng-maxlength="32"
+    placeholder="FirstName"
+    minlength="1"
+    ng-model="reg.user.firstname">
+    {{reg.user.firstname}}
+    <span
+    ng-if="(signupForm.firstname.$error.minlength ||
+    signupForm.firstname.$error.required) && signupForm.firstname.$touched">
+    First Name cannot be empty!</span>
+    <span
+    ng-if="signupForm.firstname.$error.maxlength &&signupForm.firstname.$touched">
+    First Name cannot be longer than 32 characters.</span><br>
+
+    Last Name:&#09;&#09;
+    <input name="lastname" type="text" style="color:black;"
+    required
+    ng-maxlength="10"
+    minlength="1"
+    placeholder="LastName"
+    ng-model="reg.user.lastname">
+    {{reg.user.lastname}}
+    <span
+    ng-if="(signupForm.lastname.$error.minlength ||
+    signupForm.lastname.$error.required) && signupForm.lastname.$touched">
+    Last Name cannot be empty</span>
+    <span
+    ng-if="signupForm.lastname.$error.maxlength && signupForm.lastname.$touched">
+    Last Name cannot be longer than 32 characters</span><br>
+
+    Email:&#09;&#09;&#09;
+    <input name="email" type="email" style="color:black;"
+    required
+    maxlength="32"
+    ng-model="reg.user.email">
+    <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+    Must be a valid email address: handle@domain format</span><br>
+
+    Phone Number:&#09;
+    <input name="phone" type="text" style="color:black;"
+    placeholder="Phone: ###-###-####"
+    required
+    ng-model="reg.user.phone"
+    pattern="(\d{3})-(\d{3})-(\d{4})">
+    <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+    Phone must be in the format ###-###-####.</span><br>
+
+    Please let us know your favorite dish:
+    <input name="shortname" style="color:black"
+    required
+    ng-model="reg.user.shortname">
+    <span
+    ng-if="signupForm.shortname.$error.required && signupForm.shortname.$touched">
+    Dish Name cannot be empty!</span><br><br><br>
+
+    <input type="submit" value="Submit" ng-click="reg.submit(reg.user)">&#09;<input type="reset">
+  </div>
+</form>
