@@ -1,8 +1,14 @@
 <form name="customerInfo" align="left" ng-controller="MyInfoController as myInfoCtrl">
-  Hi! {{myInfoCtrl.firstname}}&nbsp;&nbsp;{{myInfoCtrl.lastname}}!<br>
-  Phone # {{myInfoCtrl.phone}}<br>
-  Email # {{myInfoCtrl.email}}<br>
-  Your Dish Selection: {{myInfoCtrl.shortname}}.
-  <br><br>
-  Thanks!
+  <div ng-if="myInfoCtrl.firstname.length > 0">
+    Hi! {{myInfoCtrl.firstname}}&nbsp;&nbsp;{{myInfoCtrl.lastname}}!<br>
+    Phone # {{myInfoCtrl.phone}}<br>
+    Email # {{myInfoCtrl.email}}<br>
+    Your Dish Selection: {{myInfoCtrl.shortname}}.
+    <br><br>
+    Thanks!
+  </div>
+  <div ng-if="myInfoCtrl.firstname==null">
+    <h3>Not Signed Up Yet. <a ui-sref="public.signup">Sign Up Now!</a></h3>
+  </div>
+
 </form>
